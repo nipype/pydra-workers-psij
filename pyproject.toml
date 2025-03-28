@@ -9,6 +9,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "pydra >=0.24",
+    "psij-python",
 ]
 license = {file = "LICENSE"}
 authors = [{name = "Nipype developers", email = "neuroimaging@python.org"}]
@@ -30,7 +31,6 @@ dynamic = ["version"]
 dev = [
     "black",
     "pre-commit",
-    "types-cloudpickle"
 ]
 doc = [
     "packaging",
@@ -53,11 +53,11 @@ test = [
 source = "vcs"
 
 [tool.hatch.build.hooks.vcs]
-version-file = "pydra/workers/psij/_version.py"
+version-file = "pydra/workers/psij_local/_version.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["pydra"]
-include-only = ["pydra/workers/psij"]
+include-only = ["pydra/workers/psij_local", "pydra/workers/psij_slurm"]
 
 [tool.black]
 target-version = ["py38"]
