@@ -8,10 +8,10 @@ workers, within the `pydra.workers.<yourworkerpackagename>` namespace.
 1. Click on new repo.
 1. Select this template from the repository template drop down list.
 1. Give your repo a name.
-1. Once the repo is created and cloned, search for CHANGEME (`grep -rn CHANGEME . `) and
+1. Once the repo is created and cloned, search for psij (`grep -rn psij . `) and
    replace with appropriate name.
-1. Rename the namespace package root directory to replace `CHANGEME` with the name of the package:
-   * `pydra/workers/CHANGEME`
+1. Rename the namespace package root directory to replace `psij` with the name of the package:
+   * `pydra/workers/psij`
 1. Add your new worker class to `pydra/workers/<package-name>/__init__.py`
 1. You may want to initialize a [Sphinx] docs directory.
 1. Review the workflow in `.github/workflows/pythonpackage.yml`. Testing editable installations

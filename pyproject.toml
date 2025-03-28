@@ -3,8 +3,8 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pydra-workers-CHANGEME"
-description = "Pydra workers package for CHANGEME"
+name = "pydra-workers-psij"
+description = "Pydra workers package for psij"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -30,6 +30,7 @@ dynamic = ["version"]
 dev = [
     "black",
     "pre-commit",
+    "types-cloudpickle"
 ]
 doc = [
     "packaging",
@@ -52,11 +53,11 @@ test = [
 source = "vcs"
 
 [tool.hatch.build.hooks.vcs]
-version-file = "pydra/workers/CHANGEME/_version.py"
+version-file = "pydra/workers/psij/_version.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["pydra"]
-include-only = ["pydra/workers/CHANGEME"]
+include-only = ["pydra/workers/psij"]
 
 [tool.black]
 target-version = ["py38"]

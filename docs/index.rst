@@ -1,5 +1,5 @@
-Welcome to pydra-workers-CHANGEME's documentation!
-==================================================
+Welcome to pydra-workers-psij's documentation!
+==============================================
 
 .. toctree::
    :maxdepth: 2
