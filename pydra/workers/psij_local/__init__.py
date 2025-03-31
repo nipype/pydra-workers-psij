@@ -1,11 +1,11 @@
 import typing as ty
-from pathlib import Path
 import cloudpickle as cp
 import logging
 import attrs
 import psij
 from pydra.engine.job import Job
 from pydra.workers import base
+from pydra.utils.general import SCRIPTS_DIR
 
 logger = logging.getLogger("pydra.worker")
 
@@ -79,13 +79,12 @@ class Worker(base.Worker):
         None
         """
         jex = psij.JobExecutor.get_instance(self.subtype)
-        absolute_path = Path(__file__).parent
 
         cache_dir = job.cache_dir
         file_path = cache_dir / "runnable_function.pkl"
         with open(file_path, "wb") as file:
             cp.dump(job.run, file)
-        func_path = absolute_path / "run_pickled.py"
+        func_path = SCRIPTS_DIR / "run_pickled.py"
         spec = self.make_spec("python", [func_path, file_path])
 
         if rerun:
