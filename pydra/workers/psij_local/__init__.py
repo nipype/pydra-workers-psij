@@ -80,8 +80,8 @@ class Worker(base.Worker):
         """
         jex = psij.JobExecutor.get_instance(self.subtype)
 
-        cache_dir = job.cache_dir
-        file_path = cache_dir / "runnable_function.pkl"
+        cache_root = job.cache_root
+        file_path = cache_root / "runnable_function.pkl"
         with open(file_path, "wb") as file:
             cp.dump(job.run, file)
         func_path = SCRIPTS_DIR / "run_pickled.py"
@@ -90,8 +90,8 @@ class Worker(base.Worker):
         if rerun:
             spec.arguments.append("--rerun")
 
-        spec.stdout_path = cache_dir / "demo.stdout"
-        spec.stderr_path = cache_dir / "demo.stderr"
+        spec.stdout_path = cache_root / "demo.stdout"
+        spec.stderr_path = cache_root / "demo.stderr"
 
         psij_job = self.make_job(spec, None)
         jex.submit(psij_job)
